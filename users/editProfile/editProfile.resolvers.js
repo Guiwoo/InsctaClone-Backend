@@ -1,39 +1,45 @@
 import client from "../../client";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { protectedResolvers } from "../user.utils";
 
 export default {
   Mutation: {
-    editProfile: async (
-      _,
-      { firstName, lastName, userName, email, password: newPassword }
-    ) => {
-      let uglyPassword = null;
-      if (newPassword) {
-        uglyPassword = await bcrypt.hash(newPassword, 10);
+    editProfile: protectedResolvers(
+      async (
+        _,
+        { firstName, lastName, userName, email, password: newPassword, bio },
+        { loggedInUser }
+      ) => {
+        console.log(loggedInUser);
+        let uglyPassword = null;
+        if (newPassword) {
+          uglyPassword = await bcrypt.hash(newPassword, 10);
+        }
+        const updatedUser = await client.user.update({
+          where: {
+            id: loggedInUser.id,
+          },
+          data: {
+            firstName,
+            lastName,
+            userName,
+            email,
+            bio,
+            ...(uglyPassword && { password: uglyPassword }),
+          },
+        });
+        if (updatedUser.id) {
+          return {
+            ok: true,
+          };
+        } else {
+          return {
+            ok: false,
+            error: "Could not update profile!",
+          };
+        }
       }
-      const updatedUser = await client.user.update({
-        where: {
-          // will handle the id later!
-          id: 1,
-        },
-        data: {
-          firstName,
-          lastName,
-          userName,
-          email,
-          ...(uglyPassword && { password: uglyPassword }),
-        },
-      });
-      if (updatedUser.id) {
-        return {
-          ok: true,
-        };
-      } else {
-        return {
-          ok: false,
-          error: "Could not update profile!",
-        };
-      }
-    },
+    ),
   },
 };
