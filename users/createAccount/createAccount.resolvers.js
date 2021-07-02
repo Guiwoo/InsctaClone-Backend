@@ -25,7 +25,7 @@ export default {
           throw new Error("This username/Email is already taken.");
         }
         const uglyPassword = await hashingPassword(password, 10);
-        return client.user.create({
+        await client.user.create({
           data: {
             firstName,
             userName,
@@ -34,8 +34,14 @@ export default {
             password: uglyPassword,
           },
         });
+        return {
+          ok: true,
+        };
       } catch (e) {
-        return e;
+        return {
+          ok: false,
+          error: "Can not create account!",
+        };
       }
     },
   },
