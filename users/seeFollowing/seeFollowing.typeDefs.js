@@ -1,13 +1,13 @@
 import { gql } from "apollo-server-core";
 
 export default gql`
-  type SeeFollowersResult {
+  type SeeFollowingResult {
     ok: Boolean!
     error: String
-    followers: [User]
+    following: [User]
     totalPages: Int
   }
   type Query {
-    seeFollowers(userName: String!, page: Int!): SeeFollowersResult!
+    seeFollowing(userName: String!, lastId: Int): SeeFollowingResult!
   }
 `;
