@@ -20,9 +20,13 @@ export default {
           skip: lastId ? 1 : 0,
           ...(lastId && { cursor: { id: lastId } }),
         });
+      const totalFollowing = await client.user.count({
+        where: { followers: { some: { userName } } },
+      });
       return {
         ok: true,
         following,
+        totalFollowing,
       };
     },
   },
