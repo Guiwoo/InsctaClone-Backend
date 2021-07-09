@@ -9,6 +9,17 @@ InstaClone Backend.
 - [x] Login
 - [x] Edit Profile
 - [x] Follow User
-- [] Compute Fileds
-- [] Unfollow User
-- [] Change Avatar
+- [x] Compute Fileds
+- [x] Unfollow User
+- [x] Change Avatar
+
+## Photos:
+
+- [] Upload Photo
+- [] See Photo
+- [] See Hashtags
+- [] Search Photos
+- [] Edit Photo
+- [] Like / Dislike Photo
+- [] See Photo LIkes
+- [] See Feed
