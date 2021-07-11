@@ -15,11 +15,11 @@ InstaClone Backend.
 
 ## Photos:
 
-- [] Upload Photo
-- [] See Photo
-- [] See Hashtags
-- [] Search Photos
-- [] Edit Photo
+- [x] Upload Photo
+- [x] See Photo
+- [x] See Hashtags
+- [x] Search Photos
+- [x] Edit Photo
 - [] Like / Dislike Photo
 - [] See Photo LIkes
 - [] See Feed
