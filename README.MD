@@ -20,6 +20,8 @@ InstaClone Backend.
 - [x] See Hashtags
 - [x] Search Photos
 - [x] Edit Photo
-- [] Like / Dislike Photo
-- [] See Photo LIkes
-- [] See Feed
+- [x] Like / Dislike Photo
+- [x] See Photo LIkes
+- [x] See Feed
+- [] See Photo Comments
+- [] Is Mine(Delete Button)
