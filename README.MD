@@ -27,6 +27,6 @@ InstaClone Backend.
 - [x] Is Mine(Delete Button)
 - [] Delete Photo
 
-## Comments
+## Comments:
 
 -[x] Comment on Photo -[x] Delete Comment(if it is Mine) -[x] Edit Comment(if it is Mine)
