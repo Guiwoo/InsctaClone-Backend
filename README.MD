@@ -30,3 +30,10 @@ InstaClone Backend.
 ## Comments:
 
 -[x] Comment on Photo -[x] Delete Comment(if it is Mine) -[x] Edit Comment(if it is Mine)
+
+## Direct Message
+
+-[] Create Room
+-[] Get Room
+-[] Send Message
+-[] Realtime Message.
