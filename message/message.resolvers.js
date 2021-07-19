@@ -3,7 +3,7 @@ import client from "../client";
 export default {
   Room: {
     user: ({ id }) => client.room.findUnique({ where: { id } }).users(),
-    message: ({ id }) => client.message.findMany({ whrere: { roomId: id } }),
+    message: ({ id }) => client.message.findMany({ where: { roomId: id } }),
     unreadTotal: ({ id }, _, { loggedInUser }) => {
       if (!loggedInUser) {
         return 0;
@@ -20,5 +20,8 @@ export default {
         },
       });
     },
+  },
+  Message: {
+    user: ({ id }) => client.message.findUnique({ where: { id } }).user(),
   },
 };

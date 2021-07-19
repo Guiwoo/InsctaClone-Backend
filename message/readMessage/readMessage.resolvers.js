@@ -5,7 +5,7 @@ export default {
   Mutation: {
     readMessage: protectedResolvers(async (_, { id }, { loggedInUser }) => {
       const message = await client.message.findFirst({
-        wehre: {
+        where: {
           id,
           userId: {
             not: loggedInUser.id,

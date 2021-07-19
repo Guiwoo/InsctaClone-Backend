@@ -1,5 +1,6 @@
 require("dotenv").config();
 import express from "express";
+import http from "http";
 import { ApolloServer } from "apollo-server-express";
 import { typeDefs, resolvers } from "./schema";
 import { getUser } from "./users/user.utils";
@@ -10,9 +11,11 @@ const apollo = new ApolloServer({
   resolvers,
   typeDefs,
   context: async ({ req }) => {
-    return {
-      loggedInUser: await getUser(req.headers.token),
-    };
+    if (req) {
+      return {
+        loggedInUser: await getUser(req.headers.token),
+      };
+    }
   },
 });
 
@@ -23,6 +26,9 @@ app.use("/static", express.static("upload"));
 
 apollo.applyMiddleware({ app });
 
-app.listen({ port: PORT }, () =>
+const httpServer = http.createServer(app);
+apollo.installSubscriptionHandlers(httpServer);
+
+httpServer.listen(PORT, () =>
   console.log(`🚀 http://localhost:${PORT} is running`)
 );
