@@ -19,7 +19,7 @@ export default {
             error: "Photo dose not exist.",
           };
         }
-        await client.comment.create({
+        const getNewComment = await client.comment.create({
           data: {
             payload,
             photo: {
@@ -36,6 +36,7 @@ export default {
         });
         return {
           ok: true,
+          id: getNewComment.id,
         };
       }
     ),
