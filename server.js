@@ -6,10 +6,6 @@ import { typeDefs, resolvers } from "./schema";
 import { getUser } from "./users/user.utils";
 import logger from "morgan";
 
-process.on("warning", (warning) => {
-  console.log("⭐️", warning.stack);
-});
-
 const PORT = process.env.PORT;
 const apollo = new ApolloServer({
   resolvers,
