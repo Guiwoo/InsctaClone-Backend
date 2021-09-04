@@ -3,8 +3,10 @@ import { protectedResolvers } from "../../users/user.utils";
 
 export default {
   Query: {
-    seeFeed: protectedResolvers((_, __, { loggedInUser }) =>
+    seeFeed: protectedResolvers((_, { offSet }, { loggedInUser }) =>
       client.photo.findMany({
+        take: 2,
+        skip: offSet,
         where: {
           OR: [
             {
