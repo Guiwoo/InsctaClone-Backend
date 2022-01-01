@@ -58,5 +58,13 @@ export default {
           },
         })
         .photos(),
+    followers: ({ id }) =>
+      client.user
+        .findUnique({ where: { id }, select: { id: true } })
+        .followers(),
+    following: ({ id }) =>
+      client.user
+        .findUnique({ where: { id }, select: { id: true } })
+        .following(),
   },
 };

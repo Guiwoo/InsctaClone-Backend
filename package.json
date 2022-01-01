@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/Guiwoo/InsctaClone-Backend#readme",
   "dependencies": {
-    "@prisma/client": "^2.25.0",
+    "@babel/cli": "^7.16.0",
+    "@graphql-tools/load-files": "^6.5.2",
+    "@graphql-tools/merge": "^8.2.1",
+    "@prisma/client": "^3.6.0",
     "apollo-server": "^2.25.1",
     "apollo-server-express": "^2.25.2",
     "aws-sdk": "^2.947.0",
@@ -39,7 +42,7 @@
     "install": "^0.13.0",
     "nodemon": "^2.0.7",
     "npm": "^7.19.0",
-    "prisma": "^2.25.0"
+    "prisma": "^3.6.0"
   },
   "resolutions": {
     "fs-capacitor": "^6.2.0",
